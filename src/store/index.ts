@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { autorization } from "./Reducers/autorizationReducer";
+import { autorization } from "./Reducers/autorizations";
 
 export const store: any = configureStore({
   reducer: {

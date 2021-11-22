@@ -1,16 +1,18 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
+import { loginAction } from "../../store/Reducers/autorizations/action";
 
-export const Login = () => {
+export const Login = (props: any) => {
   const dispatch = useDispatch();
   const onLogin = () => {
-    sessionStorage.setItem("autorization", JSON.stringify(true));
-    dispatch({ type: "login" });
+    props.history.push("/home");
+    dispatch(loginAction());
   };
+
   return (
     <div className="login-container">
-      <div className="login-container-logo">
+      <div className="login-container__logo">
         <h1>Zayets app</h1>
         <button onClick={onLogin}>Login</button>
       </div>

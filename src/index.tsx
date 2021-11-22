@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 
 // Component
-import { App } from "./rootComponent/App";
+import { App } from "./AppConfig";
 
 const rootElement = document.getElementById("root");
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { NavBar } from "../NavBar";
+import { NavBar } from "../NavigationsBar";
 
-export const Home: React.FC = () => {
+export const Home = () => {
   return (
     <div>
       <NavBar />

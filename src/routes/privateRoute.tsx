@@ -1,22 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Route, Redirect, RouteProps } from "react-router-dom";
+import { RootState } from "../store";
 
 interface PrivateRouteProps extends RouteProps {
   component: any;
-  isSignedIn: boolean;
 }
 
 export const PrivateRoute = ({
   component: Component,
-  isSignedIn,
   ...rest
 }: PrivateRouteProps) => {
-  console.log("isSignedIn ", isSignedIn);
+  const autorization = useSelector(
+    (store: RootState) => store.autorization.isAuthenticated
+  );
   return (
     <Route
       {...rest}
       render={(props) =>
-        isSignedIn ? (
+        autorization ? (
           <Component {...props} />
         ) : (
           <Redirect

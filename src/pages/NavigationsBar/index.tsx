@@ -1,22 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { logOutAction } from "../../store/Reducers/autorizations/action";
 import "./styles/index.scss";
 
-export const NavBar: React.FC = () => {
+export const NavBar = () => {
   const dispatch = useDispatch();
   const onLogOut = () => {
-    sessionStorage.clear();
-    dispatch({ type: "logOut" });
+    dispatch(logOutAction());
   };
 
   return (
     <nav className="navbar-container">
-      <section className="navbar-container-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+      <section className="navbar-container__links">
+        <Link to="/home">Home</Link>
       </section>
-      <section className="navbar-container-logout">
+      <section className="navbar-container__logout">
         <button onClick={onLogOut}>Logout</button>
       </section>
     </nav>

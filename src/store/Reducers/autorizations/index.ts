@@ -1,5 +1,7 @@
+import { LOGIN, LOGOUT } from "./action";
+
 const statusFromStorage: boolean =
-  JSON.parse(sessionStorage.getItem("autorization") || "false") || false;
+  JSON.parse(localStorage.getItem("auth") || "false") || false;
 
 const initialState = {
   isAuthenticated: statusFromStorage,
@@ -7,10 +9,10 @@ const initialState = {
 
 export const autorization = (state = initialState, action: any) => {
   switch (action.type) {
-    case "login": {
+    case LOGIN: {
       return { ...state, isAuthenticated: true };
     }
-    case "logOut": {
+    case LOGOUT: {
       return { ...state, isAuthenticated: false };
     }
     default: {
